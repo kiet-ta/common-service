@@ -1,4 +1,7 @@
-﻿using CommonService.Application.Interfaces.IServices;
+﻿using CommonService.Application.Interfaces.IRepositories;
+using CommonService.Application.Interfaces.IServices;
+using CommonService.Application.Services;
+using CommonService.Infrastructure.Persistance;
 using CommonService.Infrastructure.Services;
 
 namespace CommonService.Infrastructure;
@@ -12,6 +15,12 @@ public static class DependencyInjection
         // In-Memory Cache
         services.AddMemoryCache();
         services.AddScoped<ICacheService, InMemoryCacheService>();
+
+        // Repositories
+        services.AddScoped<IUserRepository, UserRepository>();
+
+        // Services
+        services.AddScoped<IEmailService, EmailService>();
 
         // Nếu muốn Redis
         // var redisConnection = config.GetConnectionString("Redis");
