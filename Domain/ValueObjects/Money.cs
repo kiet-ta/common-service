@@ -29,10 +29,9 @@ public class Money
         return new Money(Amount + other.Amount, Currency);
     }
 
-    public Money? Multiply(int item)
+    public Money Multiply(int quantity)
     {
-        // Need fix
-        return null;
+        return new Money(Amount * quantity, Currency);
     }
 
     // Override Equals and GetHashCode to compare by value

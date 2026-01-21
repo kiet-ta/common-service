@@ -1,3 +1,5 @@
+using CommonService.Application;
+using CommonService.Infrastructure;
 using CommonService.Middleware;
 
 namespace CommonService
@@ -10,6 +12,12 @@ namespace CommonService
 
             // Add services to the container.
             builder.Services.AddControllers();
+
+            // Register Application Layer (MediatR, Behaviors, etc.)
+            builder.Services.AddApplication();
+
+            // Register Infrastructure Layer (Repositories, Cache, etc.)
+            builder.Services.AddInfrastructure(builder.Configuration);
 
             //BindingAddress Swagger/OpenAPI
             builder.Services.AddEndpointsApiExplorer();

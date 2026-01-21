@@ -13,4 +13,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
   </ItemGroup>
 
+  <!-- Exclude template file from compilation -->
+  <ItemGroup>
+    <Compile Remove="BasicIntegrationTemplate.cs" />
+  </ItemGroup>
+
 </Project>
